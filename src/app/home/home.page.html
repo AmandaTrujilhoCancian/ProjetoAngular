@@ -6,18 +6,15 @@
         <ion-row class="conta">
           <ion-col size="12">{{ this.conta }}</ion-col>
         </ion-row>
-        <ion-row class="resultado">
-          <ion-col size="12">0</ion-col>
-        </ion-row>
       </ion-col>
     </ion-row>
 
     <!-- Teclado -->
     <ion-row class="primeira_linha">
       <ion-col size="3"><ion-button (click)="clearScreen()">C</ion-button></ion-col>
-      <ion-col size="3"><ion-button>+/-</ion-button></ion-col>
+      <ion-col size="3"><ion-button (click)="exibir('*(-1)')">+/-</ion-button></ion-col>
       <ion-col size="3"><ion-button>X</ion-button></ion-col>
-      <ion-col size="3"><ion-button>/</ion-button></ion-col>
+      <ion-col size="3"><ion-button (click)="exibir('/')">/</ion-button></ion-col>
     </ion-row>
 
     <ion-row class="segunda_linha">
@@ -42,9 +39,11 @@
     </ion-row>
 
     <ion-row class="quinta linha">
-      <ion-col size="4"><ion-button (click)="exibir('.')">.</ion-button></ion-col>
-      <ion-col size="4"><ion-button (click)="exibir('0')">0</ion-button></ion-col>
-      <ion-col size="4"><ion-button>=</ion-button></ion-col>
+      <ion-col size="3"><ion-button (click)="exibir('.')">.</ion-button></ion-col>
+      <ion-col size="3"><ion-button (click)="exibir('0')">0</ion-button></ion-col>
+      <ion-col size="3"><ion-button (click)="calculate()">=</ion-button></ion-col>
+      <ion-col size="3"><ion-button (click)="porcentagem()">%</ion-button></ion-col>
+
     </ion-row>
 
   </div>

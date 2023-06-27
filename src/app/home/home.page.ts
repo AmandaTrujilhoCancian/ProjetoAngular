@@ -26,8 +26,13 @@ export class HomePage {
       this.conta += num;
     }
 
+    // Função de porcentagem
+    porcentagem(){
+      
+    }
+
     //Esta função executa o resultado da expressão e retorna
     calculate() {
-    this.resultado = eval(this.conta);
+    this.conta = eval(this.conta);
     } 
 }
