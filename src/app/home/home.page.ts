@@ -27,9 +27,14 @@ export class HomePage {
     }
 
     // Função de porcentagem
-    porcentagem(){
-      
-    }
+    // porcentagem(){
+    //   //var c = calculate();
+    //   for(var p = this.conta.lenght; p=0; p--){
+    //     if(this.conta[p] == '+' || this.conta[p] == '-' || this.conta[p] == '*' || this.conta[p] == '/'){
+
+    //     }
+    //   }
+    // }
 
     //Esta função executa o resultado da expressão e retorna
     calculate() {
