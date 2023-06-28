@@ -31,21 +31,45 @@ export class HomePage {
     this.conta = eval(this.conta);
     } 
 
-    // //Função de apagar um digito 
-    // apagar(){
-    //   this.conta = this.conta.splice(this.conta.lenght-1, 1)
-    // }
+    // Funcão +/-
+    trocaSinal(){
+      for(var p = this.conta.length-1; p>0; p--){
+        if(this.conta[p] == '+' || this.conta[p] == '-' || this.conta[p] == '*' || this.conta[p] == '/'){
+           this.conta = this.conta.split('');//transforma em array
+           var operacao = this.conta[p]; 
+           var arrayNumero = this.conta.slice(p+1, this.conta.length).join(''); // fazer uma copia do array o último valor digitado
+           var arrayConta = this.conta.splice(0, p).join(''); //vai recortar o ultimo número da porcentagem, ou seja, vai deixar só a conta     
+           this.conta = arrayConta;
+           let numero = Number(arrayNumero) * (-1);
+           this.conta += operacao + "(" + numero + ")"; //calcula a porcentagem
+           return;
+        }
+      }
+    }
 
-    // //Função de porcentagem
-    // porcentagem(){
-    //    this.exibir('%');
-    //   for(var p = this.conta.lenght; p=0; p--){
-    //     if(this.conta[p] == '+' || this.conta[p] == '-' || this.conta[p] == '*' || this.conta[p] == '/'){
-    //        var arrayPorcentagem = this.conta.slice(p, this.conta.lenght);
-    //        var arrayConta = this.conta.splice(p, arrayPorcentagem.lenght+1);
-    //        this.conta = (eval(arrayConta)) * (arrayPorcentagem/100);
-    //     }
+    //Função de apagar um digito 
+    apagar(){
+      this.conta = this.conta.split(''); //transforma a string em array
+      this.conta.pop(); // exclui o último
+      this.conta = this.conta.join(''); //volta a ser string, "junta"
+    }
+
+    //Função de porcentagem
+    porcentagem(){
+       this.exibir('%');
+       
+      for(var p = this.conta.length-1; p>0; p--){
+        if(this.conta[p] == '+' || this.conta[p] == '-' || this.conta[p] == '*' || this.conta[p] == '/'){
+           this.conta = this.conta.split('');//transforma em array
+           var operacao = this.conta[p];
+           var arrayPorcentagem = this.conta.slice(p+1, this.conta.length-1).join(''); // fazer uma copia do array entre a operação e o %
+           var arrayConta = this.conta.splice(0, p).join(''); //vai recortar o número da porcentagem, ou seja, vai deixar só a conta     
+           this.conta = arrayConta + operacao;
+           let porcentagem = Number(arrayPorcentagem)/100;
+           this.conta += (eval(arrayConta)) * porcentagem; //calcula a porcentagem
+           return;
+        }
     
-    //   }
-    // }
+      }
+    }
 }
