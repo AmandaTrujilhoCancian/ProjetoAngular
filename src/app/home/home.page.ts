@@ -31,18 +31,21 @@ export class HomePage {
     this.conta = eval(this.conta);
     } 
 
-    // Função de apagar um digito 
+    // //Função de apagar um digito 
     // apagar(){
-    //   this.conta = this.conta.slice(this.conta.lenght -1)
+    //   this.conta = this.conta.splice(this.conta.lenght-1, 1)
     // }
 
-    // Função de porcentagem
+    // //Função de porcentagem
     // porcentagem(){
-    //   //var c = calculate();
+    //    this.exibir('%');
     //   for(var p = this.conta.lenght; p=0; p--){
     //     if(this.conta[p] == '+' || this.conta[p] == '-' || this.conta[p] == '*' || this.conta[p] == '/'){
-
+    //        var arrayPorcentagem = this.conta.slice(p, this.conta.lenght);
+    //        var arrayConta = this.conta.splice(p, arrayPorcentagem.lenght+1);
+    //        this.conta = (eval(arrayConta)) * (arrayPorcentagem/100);
     //     }
+    
     //   }
     // }
 }
