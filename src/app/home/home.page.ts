@@ -15,7 +15,7 @@ export class HomePage {
   resultado: any = "";
 
   // Esta função limpa todos os valores
-   clearScreen() {
+   limpaTela() {
     this.conta = "";
     this.resultado ="";
    }
@@ -26,6 +26,16 @@ export class HomePage {
       this.conta += num;
     }
 
+    //Esta função executa o resultado da expressão e retorna
+    calculate() {
+    this.conta = eval(this.conta);
+    } 
+
+    // Função de apagar um digito 
+    // apagar(){
+    //   this.conta = this.conta.slice(this.conta.lenght -1)
+    // }
+
     // Função de porcentagem
     // porcentagem(){
     //   //var c = calculate();
@@ -35,9 +45,4 @@ export class HomePage {
     //     }
     //   }
     // }
-
-    //Esta função executa o resultado da expressão e retorna
-    calculate() {
-    this.conta = eval(this.conta);
-    } 
 }
