@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule, CommonModule],
 })
+
 export class HomePage {
 
 	conta: any = "";
