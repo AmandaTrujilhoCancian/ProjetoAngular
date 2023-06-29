@@ -12,21 +12,25 @@ import { IonicModule } from '@ionic/angular';
 export class HomePage {
 
 	conta: any = "";
+  resultado: any = "";
 
   // Esta função limpa todos os valores
    limpaTela() {
     this.conta = "";
+    this.resultado = "";
    }
 
-   // Esta função exibe os valores da conta
+   // Esta função exibe os valores da conta e o resultado
     exibir(num: any) {
       // usa o this para acessar a variável que foi criada acima
       this.conta += num;
+      this.resultado = eval(this.conta);
     }
 
-    //Esta função executa o resultado da conta
-    calculate() {
-    this.conta = eval(this.conta);
+    //Esta função mostra a conta como resultado final e o resultado some
+    igual() {
+      this.conta = eval(this.conta);
+      this.resultado = "";
     } 
 
     // Funcão +/-, ou seja, troca o sinal
@@ -41,12 +45,14 @@ export class HomePage {
            this.conta = arrayConta;
            let numero = Number(arrayNumero) * (-1);
            this.conta += operacao + "(" + numero + ")"; //calcula a porcentagem
+           this.resultado = eval(this.conta);
            return;
         }
       }
       // troca de sinal sem ter conta antes 
       if(operacao == null){
         this.conta =  Number(this.conta) * (-1); //ao multiplicar por -1, vai trocar o sinal
+        this.resultado = eval(this.conta);
         return;
       } 
     }
@@ -56,11 +62,12 @@ export class HomePage {
       this.conta = this.conta.split(''); //transforma a string em array
       this.conta.pop(); // exclui o último
       this.conta = this.conta.join(''); //volta a ser string, "junta"
+      this.resultado = eval(this.conta);
     }
 
     //Função de porcentagem %
     porcentagem(){
-      this.exibir('%');
+      this.conta = this.conta + '%';
       for(var p = this.conta.length-1; p>0; p--){ //vai percorrer a string de trás para frente
         if(this.conta[p] == '+' || this.conta[p] == '-' || this.conta[p] == '*' || this.conta[p] == '/'){
           this.conta = this.conta.split(''); //transforma em array
@@ -70,9 +77,9 @@ export class HomePage {
           this.conta = arrayConta + operacao;
           let porcentagem = Number(arrayPorcentagem)/100; //calcula a porcentagem
           this.conta += (eval(arrayConta)) * porcentagem; //calcula a conta com a porcentagem
+          this.resultado = eval(this.conta);
           return;
-        }
-    
+        } 
       }
     }
 }
